@@ -226,8 +226,8 @@
 %% Customized styles
 
 % For elements of publications
-\newcommand*{\publicationtitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
-\newcommand*{\publicationauthorstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
+\newcommand*{\publicationtitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{darktext} #1}}
+\newcommand*{\publicationauthorstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{graytext} #1}}
 \newcommand*{\publicationdatestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\publicationjournalstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\publicationurlstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
@@ -235,7 +235,7 @@
 % For elements of presentations
 \newcommand*{\presentationtitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\presentationdatestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
-\newcommand*{\presentationconferencestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
+\newcommand*{\presentationconferencestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{darktext} #1}}
 \newcommand*{\presentationlocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 
 %-------------------------------------------------------------------------------
@@ -824,6 +824,26 @@
 \newcommand*{\cvpresentation}[4]{%
   - & \presentationconferencestyle{#1} & \presentationlocationstyle{#3} \\
   & \presentationtitlestyle{#2} & \presentationdatestyle{#4} \\
+}
+
+% Define an environment for cvcompactentry
+\newenvironment{cvcompactentries}{%
+  \vspace{\acvSectionContentTopSkip}
+  \begin{center}
+}{%
+  \end{center}
+}
+% Define an entry of cv information
+% Usage: \cvcompactentry{<position>}{<title>}{<location>}{<date>}{<description>}
+\newcommand*{\cvcompactentry}[5]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{2cm} R{2.5cm}}
+    \ifstrempty{#5}
+    {\entrytitlestyle{#2}, \entrypositionstyle{#1} & \entrylocationstyle{#3} & \entrydatestyle{#4} \\}
+    {\entrytitlestyle{#2}, \entrypositionstyle{#1}, \descriptionstyle{#5} & \entrylocationstyle{#3} & \entrydatestyle{#4} \\}
+  \end{tabular*}%
 }
 
 
