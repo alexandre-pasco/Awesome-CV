@@ -223,6 +223,20 @@
 \newcommand*{\letternamestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\letterenclosurestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\slshape\color{lighttext} #1}}
 
+%% Customized styles
+
+% For elements of publications
+\newcommand*{\publicationtitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
+\newcommand*{\publicationauthorstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
+\newcommand*{\publicationdatestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
+\newcommand*{\publicationjournalstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
+\newcommand*{\publicationurlstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
+
+% For elements of presentations
+\newcommand*{\presentationtitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
+\newcommand*{\presentationdatestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
+\newcommand*{\presentationconferencestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
+\newcommand*{\presentationlocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 
 %-------------------------------------------------------------------------------
 %                Commands for personal information
@@ -771,6 +785,45 @@
   \end{itemize}
   \end{justify}
   \vspace{1.0mm}
+}
+
+%% Customized environments
+% Define an environment for cvpublications
+\newenvironment{cvpublications}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-2mm}
+  \begin{center}
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{0pt}
+    \begin{tabular*}{\textwidth}[t]{@{\extracolsep{\fill}} R{0.5cm} L{\textwidth - 4.0cm} R{2.5cm}}
+}{%
+    \end{tabular*}
+  \end{center}
+}
+% Define a line of cv information(publications)
+% Usage: \cvpublication{<authors>}{<title>}{<journal>}{<date>}{<url>}
+\newcommand*{\cvpublication}[5]{%
+  - & \publicationauthorstyle{#1}: \publicationtitlestyle{#2} & \publicationdatestyle{#4} \\
+   & \publicationjournalstyle{#3} \publicationurlstyle{\href{#5}{#5}} & \\
+}
+
+% Define an environment for cvpresentations
+\newenvironment{cvpresentations}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-2mm}
+  \begin{center}
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{0pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} R{0.5cm} L{\textwidth - 4.5cm} R{3.0cm}}
+}{%
+    \end{tabular*}
+  \end{center}
+}
+% Define a line of cv information(presentations)
+% Usage: \cvpresentation{<conference>}{<title>}{<location>}{<date>}
+\newcommand*{\cvpresentation}[4]{%
+  - & \presentationconferencestyle{#1} & \presentationlocationstyle{#3} \\
+  & \presentationtitlestyle{#2} & \presentationdatestyle{#4} \\
 }
 
 
