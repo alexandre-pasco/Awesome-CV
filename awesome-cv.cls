@@ -795,7 +795,7 @@
   \begin{center}
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}
-    \begin{tabular*}{\textwidth}[t]{@{\extracolsep{\fill}} R{0.5cm} L{\textwidth - 4.0cm} R{2.5cm}}
+    \begin{tabular*}{\textwidth}[t]{@{\extracolsep{\fill}} R{0.5cm} L{\textwidth - 3.5cm} R{2.0cm}}
 }{%
     \end{tabular*}
   \end{center}
@@ -839,7 +839,7 @@
   \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{2cm} R{2.5cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5.5cm} R{3cm} R{2.5cm}}
     \ifstrempty{#5}
     {\entrytitlestyle{#2}, \entrypositionstyle{#1} & \entrylocationstyle{#3} & \entrydatestyle{#4} \\}
     {\entrytitlestyle{#2}, \entrypositionstyle{#1}, \descriptionstyle{#5} & \entrylocationstyle{#3} & \entrydatestyle{#4} \\}
