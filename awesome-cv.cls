@@ -74,8 +74,8 @@
 \defaultfontfeatures{Ligatures=TeX}
 % Needed to manage math fonts
 \RequirePackage{unicode-math}
-% Needed to use icons from font-awesome
-\RequirePackage{fontawesome}
+% Needed to use icons from Font Awesome
+\RequirePackage{fontawesome6}
 \RequirePackage{roboto}
 \RequirePackage[default,opentype]{sourcesanspro}
 % Needed for the photo ID
@@ -168,10 +168,6 @@
 \newcommand*{\footerfont}{\sourcesanspro}
 \newcommand*{\bodyfont}{\sourcesanspro}
 \newcommand*{\bodyfontlight}{\sourcesansprolight}
-
-% Change exclusive icons from fontawesome6 when not installed
-\newcommand*{\faHouseChimney}{\faGlobe}
-\newcommand*{\faSquareGithub}{\faGithub}
 
 %-------------------------------------------------------------------------------
 %                Configuration for styles
